@@ -1,3 +1,3 @@
 # Jehbrowser
 
-Modern, lightweight, secure browser built with Tauri v2 + SvelteKit + TailwindCSS.
+Modern, beautiful, lightweight and secure browser built with Tauri v2 + SvelteKit + TailwindCSS.
