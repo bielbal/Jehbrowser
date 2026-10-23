@@ -3,8 +3,6 @@ import type { Tab, Bookmark, HistoryEntry, BrowserSettings, SidebarPanel } from 
 
 const nanoid = () => Math.random().toString(36).slice(2, 10);
 
-// ── Tabs ──────────────────────────────────────────────────────────────────────
-
 function createTabStore() {
   const { subscribe, update } = writable<Tab[]>([]);
 
@@ -46,8 +44,6 @@ function createTabStore() {
   };
 }
 
-// ── Bookmarks ─────────────────────────────────────────────────────────────────
-
 function createBookmarkStore() {
   const stored: Bookmark[] = typeof localStorage !== 'undefined'
     ? JSON.parse(localStorage.getItem('jeh-bookmarks') ?? '[]')
@@ -69,8 +65,6 @@ function createBookmarkStore() {
     }
   };
 }
-
-// ── History ───────────────────────────────────────────────────────────────────
 
 function createHistoryStore() {
   const stored: HistoryEntry[] = typeof localStorage !== 'undefined'
@@ -95,8 +89,6 @@ function createHistoryStore() {
     }
   };
 }
-
-// ── Settings ──────────────────────────────────────────────────────────────────
 
 function createSettingsStore() {
   const defaults: BrowserSettings = {
