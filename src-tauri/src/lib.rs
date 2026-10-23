@@ -51,7 +51,6 @@ fn create_tab(app: AppHandle, id: String, url: String) -> Result<(), String> {
     let reg = app.state::<TabRegistry>();
     reg.0.lock().unwrap().insert(id.clone(), true);
 
-    // Hide all other tabs, show this one
     let ids: Vec<String> = reg.0.lock().unwrap().keys().cloned().collect();
     for tid in &ids {
         if let Some(wv) = win.get_webview(tid) {
@@ -152,7 +151,6 @@ pub fn run() {
         .setup(|app| {
             let win = app.get_window("main").unwrap();
 
-            // Resize child webviews when window is resized
             let app_handle = app.handle().clone();
             win.on_window_event(move |event| {
                 if let tauri::WindowEvent::Resized(size) = event {
